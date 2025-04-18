@@ -1,6 +1,10 @@
 # CEC Dynamic Scene Graph
 
-A dynamic scene graph!
+A dynamic scene graph! This package makes it easy to construct a dynamic scene graph that support partial observability -- objects can move, and not all objects must be visible at once. The package defines the object structure and resolves which object is seen given an observation of its global coordinates.
+
+The package is designed to be as easy to use as possible. It had no dependencies and can easily fit into your perception pipeline.
+
+Maintained by Jack Kolb (jack@jackkolb.com).
 
 ## Install
 
