@@ -151,7 +151,7 @@ class DSG:
         return False, ""  # no naive match
 
     # finds the closest object of the class
-    def __find_closest_match__(self, object_class:str, x:float, y:float, z:float, ignore:list=[]) -> tuple[str | None, float]:
+    def __find_closest_match__(self, object_class:str, x:float, y:float, z:float, ignore:list=[]) -> Tuple[str | None, float]:
         # check if the object class is known
         if object_class not in self.__objects_by_class__:
             raise KeyError("The given object class '" + str(object_class) + "' is not in the known objects list.")
@@ -169,7 +169,7 @@ class DSG:
         return closest_object_id, closest_distance
 
     # check arguments of a function that can take either an object dict or individual properties
-    def __validate_object_properties__(self, object_dict:Optional[dict]=None, object_class:Optional[str]=None, x:Optional[float]=None, y:Optional[float]=None, z:Optional[float]=None) -> tuple[str | None, float | None, float | None, float | None]:
+    def __validate_object_properties__(self, object_dict:Optional[dict]=None, object_class:Optional[str]=None, x:Optional[float]=None, y:Optional[float]=None, z:Optional[float]=None) -> Tuple[str | None, float | None, float | None, float | None]:
         # if the object dictionary was not passed in, ensure all the object properties were passed in
         if object_dict is None:
             if object_class is None or not isinstance(x, str):
