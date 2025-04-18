@@ -9,7 +9,7 @@ __license__ = "MIT"
 
 # constructs, maintains, and resolves a scene graph from inputs of sighted object classes and locations
 class DSG:
-    def __init__(self, objects:list=[], same_location_threshold:int=4):
+    def __init__(self, objects:list=[], same_location_threshold:float=4):
         # public variables
         self.objects = {}  # dictionary of object ID : Node (environment object)
         self.lost_object_ids = []  # list of object IDs that the agent has lost track of
@@ -109,14 +109,18 @@ class DSG:
     def count(self):
         return len(self.objects)
     
-    # get the objetst by class
+    # return the DSG as a dictionary of object IDs and their properties
+    def get_objects_by_id(self) -> dict:
+        return {k : self.objects[k].as_dict() for k in self.objects}
+    
+    # get the objects by class
     def get_objects_by_class(self) -> dict:
         objects_by_class = {}
         for object_id in self.objects:
             object_class = self.objects[object_id].object_class
             if object_class not in objects_by_class:
                 objects_by_class[object_class] = []
-            objects_by_class[object_class].append(self.objects[object_id])
+            objects_by_class[object_class].append(self.objects[object_id].as_dict())
         return objects_by_class
 
     # update a known object's properties, used when the object ID is known

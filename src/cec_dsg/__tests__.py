@@ -1,10 +1,10 @@
 # tests.py: several unit tests of the DSG
 
-import dsg, node
+import dsg
 
 # create the DSG object
 def test_init():
-    scene = dsg.DSG(same_location_threshold = 4)
+    scene = dsg.DSG(same_location_threshold=4)
     return scene
 
 # initialize with three dummy objects
@@ -28,9 +28,9 @@ def test_add_objects(scene) -> None:
         "y": 7,
         "z": 1.0
     }
-    scene.add_object(object_dict = table)
-    scene.add_object(object_dict = book_left)
-    scene.add_object(object_dict = book_right)
+    scene.add_object(object_dict=table)
+    scene.add_object(object_dict=book_left)
+    scene.add_object(object_dict=book_right)
     return
 
 # left book, slightly different location
