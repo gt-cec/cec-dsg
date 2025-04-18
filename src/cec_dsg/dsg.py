@@ -1,7 +1,7 @@
 # dsg.py: constructs and maintains the scene graph
 
-from .node import Node  # for scene object
-from typing import Optional  # for arguments that can be None
+from cec_dsg.node import Node  # for scene object
+from typing import Optional, Tuple  # for arguments that can be None
 
 __author__ = "Jack Kolb"
 __copyright__ = "Jack Kolb"
@@ -138,7 +138,7 @@ class DSG:
         return False, -1
 
     # finds an object of the same class and similar location
-    def __find_naive_match__(self, object_class:str, x:float, y:float, z:float) -> tuple[bool, str]:
+    def __find_naive_match__(self, object_class:str, x:float, y:float, z:float) -> Tuple[bool, str]:
         # check if the object class is known
         if object_class not in self.__objects_by_class__:
             raise KeyError("The given object class '" + str(object_class) + "' is not in the known objects list.")
